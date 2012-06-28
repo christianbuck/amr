@@ -29,9 +29,9 @@ if __name__ == '__main__':
                 timex = ElementTree.fromstring(annotation['Timex'])
                 tid = timex.attrib['tid']
                 if not tid in seen_expressions:
+                    print_timex(timex)
                     if not timex.attrib['type'] == 'DATE':
                         continue
-                    print_timex(timex)
                     if 'value' in timex.attrib:
                         print "AMR:", Timex3Entity(timex)
                     else:
