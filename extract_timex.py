@@ -29,6 +29,7 @@ if __name__ == '__main__':
                 timex = ElementTree.fromstring(annotation['Timex'])
                 tid = timex.attrib['tid']
                 if not tid in seen_expressions:
+                    seen_expressions.add(tid)
                     print_timex(timex)
                     if not timex.attrib['type'] == 'DATE':
                         continue
@@ -37,4 +38,3 @@ if __name__ == '__main__':
                     else:
                         print "skipping (no value)"
 
-                seen_expressions.add(tid)
